@@ -4,16 +4,15 @@
 int main(){
     int numero;
 
-    printf("Digite um número inteiro positivo");
+    printf("Digite um numero inteiro positivo\n");
     scanf("%d\n", &numero);
 
-    switch(numero % 2){
+    switch(numero%2){
         case 0:
-            printf("O número é par!\n");
+            printf("Numero par!\n");
             break;
         default:
-            printf("O número é ímpar!\n")
-            break;
+            printf("Numero impar!\n");
 
     }
 
