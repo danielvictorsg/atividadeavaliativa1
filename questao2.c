@@ -5,7 +5,7 @@ int main(){
     int numero;
 
     printf("Digite um numero inteiro positivo\n");
-    scanf("%d\n", &numero);
+    scanf("%d", &numero);
 
     switch(numero%2){
         case 0:
