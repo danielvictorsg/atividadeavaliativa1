@@ -3,18 +3,20 @@
 
 int main(){
     int numero;
+    int soma=0;
 
-    printf("Digite um numero inteiro positivo\n");
     scanf("%d", &numero);
 
     switch(numero%2){
         case 0:
-            printf("Numero par!\n");
+            printf("eh par!\n");
             break;
         default:
-            printf("Numero impar!\n");
-
-    }
+            printf("eh impar!\n");
+    } while (numero != 0){
+        soma+= numero%10;
+        numero /=10;
+    } printf("A soma dos algarismos eh %d\n",soma);
 
     return 0;
 }
