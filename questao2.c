@@ -14,7 +14,7 @@ int main(){
         default:
             printf("eh impar!\n");
     } while (numero != 0){
-        soma+= numero%10;
+        soma += numero%10;
         numero /=10;
     } printf("A soma dos algarismos eh %d\n",soma);
 
