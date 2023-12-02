@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Função para converter um caractere romano em seu valor decimal
+
 int valorRomano(char c) {
     switch (c) {
         case 'I': return 1;
@@ -11,11 +11,10 @@ int valorRomano(char c) {
         case 'C': return 100;
         case 'D': return 500;
         case 'M': return 1000;
-        default: return -1; // Caractere romano inválido
+        default: return -1;
     }
 }
 
-// Função para converter um número romano para decimal
 int romanoParaDecimal(char *numeroRomano) {
     int resultado = 0;
 
@@ -29,28 +28,42 @@ int romanoParaDecimal(char *numeroRomano) {
     return resultado;
 }
 
+void imprimirBinario(int numero) {
+    int mascara = 1 << 11;
+    int flag = 0;
+
+    printf("na base 2: ");
+    while (mascara > 0) {
+        int bit = (numero & mascara) ? 1 : 0;
+        if (bit == 1 || flag == 1) {
+            printf("%d", bit);
+            flag = 1;
+        }
+        mascara >>= 1;
+    }
+    if (flag == 0) {
+        printf("0");
+    }
+    printf("\n");
+}
+
 int main() {
     char numeroRomano[13];
-    int decimal;
-
-    // Entrada do usuário
-    printf("Digite um número romano (até 12 caracteres): ");
+    
     scanf("%12s", numeroRomano);
 
-    // Validar a entrada
-    if (romanoParaDecimal(numeroRomano) < 1 || romanoParaDecimal(numeroRomano) > 1000) {
+    int decimal = romanoParaDecimal(numeroRomano);
+    if (decimal < 1 || decimal > 1000) {
         printf("Entrada inválida. Certifique-se de inserir um número romano entre 1 e 1000.\n");
         return 1;
     }
-    decimal = romanoParaDecimal(numeroRomano);
 
-    printf("%s na base 2: ", numeroRomano);
-    for (int i = 11; i >= 0; i--) {
-        printf("%d", (decimal >> i) & 1);
-    }
-    printf("\n");
+    printf("%s ", numeroRomano);
+    imprimirBinario(decimal);
+
     printf("%s na base 10: %d\n", numeroRomano, decimal);
-    printf("%s na base 16: %X\n", numeroRomano, decimal);
+
+    printf("%s na base 16: %x\n", numeroRomano, decimal);
 
     return 0;
 }
