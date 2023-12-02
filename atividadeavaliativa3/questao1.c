@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 28575f95b7216521910ed95163044019afd96100
 int valorRomano(char c) {
     switch (c) {
         case 'I': return 1;
@@ -40,6 +43,7 @@ void imprimirBinario(int numero) {
             flag = 1;
         }
         mascara >>= 1;
+<<<<<<< HEAD
     }
     if (flag == 0) {
         printf("0");
@@ -63,6 +67,27 @@ int main() {
 
     printf("%s na base 10: %d\n", numeroRomano, decimal);
 
+=======
+    }
+    if (flag == 0) {
+        printf("0");
+    }
+    printf("\n");
+}
+
+int main() {
+    char numeroRomano[13];
+    
+    scanf("%12s", numeroRomano);
+
+    int decimal = romanoParaDecimal(numeroRomano);
+    if (decimal < 1 || decimal > 1000) {
+        return 1;
+    }
+    printf("%s ", numeroRomano);
+    imprimirBinario(decimal);
+    printf("%s na base 10: %d\n", numeroRomano, decimal);
+>>>>>>> 28575f95b7216521910ed95163044019afd96100
     printf("%s na base 16: %x\n", numeroRomano, decimal);
 
     return 0;

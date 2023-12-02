@@ -1,4 +1,5 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
@@ -78,3 +79,6 @@ int main(){
     }
     return 0;
 }
+=======
+#include <string.h>
+>>>>>>> 28575f95b7216521910ed95163044019afd96100
