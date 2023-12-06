@@ -44,18 +44,42 @@ void buscarHospede(Hospede hospedes[]) {
 }
 // Função principal
 int main() {
-    char estadoQuartos[NUM_QUARTOS]; // Array para armazenar o estado dos quartos ('V' para vazio, 'O' para ocupado)
-    int numeroHospede;
- 
+    Hospede hospedes[NUM_QUARTOS];
+    int opcao, numeroQuarto;
+
     // Inicializar todos os quartos como vazios
-    for (i; i < NUM_QUARTOS; i++) {
-        estadoQuartos[i] = 'V';
+    for (i = 0; i < NUM_QUARTOS; i++) {
+        hospedes[i].quarto = 0;
     }
- 
-    // Solicitar número do hóspede ao usuário
-    printf("Digite o número do hóspede: ");
-    scanf("%d", &numeroHospede);
- 
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Inserir um novo hospede em um quarto vazio\n");
+        printf("2. Listar hospedes\n");
+        printf("3. Buscar hospede\n");
+        printf("0. Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Digite o numero do quarto: ");
+                scanf("%d", &numeroQuarto);
+                inserirHospede(hospedes, numeroQuarto);
+                break;
+            case 2:
+                listarHospedes(hospedes);
+                break;
+            case 3:
+                buscarHospede(hospedes);
+                break;
+            case 0:
+                printf("Saindo do programa.\n");
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
 
     return 0;
 }
