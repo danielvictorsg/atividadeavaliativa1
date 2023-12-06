@@ -3,16 +3,19 @@
 
 #define NUM_QUARTOS 10
 #define TAM_NOME 50
+
 int i = 0;
 typedef struct {
     char nome[TAM_NOME];
     int quarto;
 } Hospede;
- 
+
 // Função para inserir um novo hóspede em um quarto vazio
-void inserirHospede(char quartos[], int numeroQuarto) {
-    if (quartos[numeroQuarto - 1] == 'V') {
-        quartos[numeroQuarto - 1] = 'O'; // 'O' representa ocupado
+void inserirHospede(Hospede hospedes[], int numeroQuarto) {
+    if (hospedes[numeroQuarto - 1].quarto == 0) {
+        hospedes[numeroQuarto - 1].quarto = numeroQuarto;
+        printf("Digite o nome do hospede: ");
+        scanf("%s", hospedes[numeroQuarto - 1].nome);
         printf("Hóspede inserido no quarto %d com sucesso.\n", numeroQuarto);
     } else {
         printf("O quarto %d está ocupado. Escolha outro quarto.\n", numeroQuarto);
