@@ -27,6 +27,21 @@ void listarHospedes(Hospede hospedes[]) {
         }
     }
 }
+
+void buscarHospede(Hospede hospedes[]) {
+    char nome[TAM_NOME];
+    printf("Digite o nome do hospede: ");
+    scanf("%s", nome);
+
+    for (int i = 0; i < NUM_QUARTOS; i++) {
+        if (hospedes[i].quarto != 0 && strcmp(hospedes[i].nome, nome) == 0) {
+            printf("Hospede encontrado no quarto %d.\n", hospedes[i].quarto);
+            return;
+        }
+    }
+
+    printf("Hospede nao encontrado.\n");
+}
 // Função principal
 int main() {
     char estadoQuartos[NUM_QUARTOS]; // Array para armazenar o estado dos quartos ('V' para vazio, 'O' para ocupado)
